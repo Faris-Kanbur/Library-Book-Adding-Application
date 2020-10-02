@@ -68,8 +68,6 @@ class Arayuz{
 
 //  ---------------------------------------
 
-
-
         const h3=document.querySelector(".baslik2");
         
         h3.classList.add(`${className}`)
@@ -79,10 +77,13 @@ class Arayuz{
             document.querySelector(".baslik2").remove();
         },2000);
 
-      
+    }
+    formuTemizle(){
+        document.getElementById("txtKitapAdi").value=""
+        document.getElementById("txtKitapYazari").value=""
+        document.getElementById("txtKitapISBN").value=""
 
     }
-
 
 
 }
