@@ -47,44 +47,49 @@ class Arayuz{
 
     mesajGoster(mesaj,className){
 
-        // const container=document.querySelector(".container");
+// ---------------------Birinci yol-----------------------
 
-        // const form=document.querySelector("#formKitap");
+        const container=document.querySelector(".container");
+
+        const form=document.querySelector("#formKitap");
 
         
-        // const mesajKutusu=document.createElement("div");
+        const mesajKutusu=document.createElement("div");
 
-        // // mesajKutusu.className=`${className}`;
-        // mesajKutusu.classList.add(`${className}`)
-
-        // // mesajKutusu.appendChild(document.createTextNode(mesaj));
-        // mesajKutusu.innerHTML=mesaj;
+        mesajKutusu.className=`alert ${className}`;
 
 
+        // mesajKutusu.appendChild(document.createTextNode(mesaj));
+        mesajKutusu.innerHTML=mesaj;
 
-        // // container.insertBefore(mesajKutusu,form);
-        // document.querySelector(".baslik2").innerHTML=mesaj;
-
-
-//  ---------------------------------------
-
-        const h3=document.querySelector(".baslik2");
-        
-        h3.classList.add(`${className}`)
-        h3.innerHTML=mesaj;
+        container.insertBefore(mesajKutusu,form);
+    
 
         setTimeout(function(){
-            document.querySelector(".baslik2").remove();
-        },2000);
+            document.querySelector(".alert").remove();
+        },5000);
+
+//  ---------------------------------------IKINCI YOL-------------------------
+
+        // const h3=document.querySelector(".baslik2");
+        
+        // h3.className=`alert ${className}`;
+        // h3.innerHTML=mesaj;
+
+        // setTimeout(function(){
+        //     document.querySelector(".alert").remove();
+        // },5000);
 
     }
+
+
+
     formuTemizle(){
         document.getElementById("txtKitapAdi").value=""
         document.getElementById("txtKitapYazari").value=""
         document.getElementById("txtKitapISBN").value=""
 
     }
-
 
 }
 
