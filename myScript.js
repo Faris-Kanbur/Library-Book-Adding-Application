@@ -27,25 +27,63 @@ class Arayuz{
 
     }
 
-    kitapSil(){
+    kitapSil(target){
+
+        if(target.className==="delete"){
+            target.parentNode.parentNode.remove();
+        }
+
+        target.n
 
     }
 
     kitapSay(){
+        // const tablo=document.getElementById("kitapListesi");
+        const kayitsayisi= document.getElementsByTagName("tr").length-1;
+        document.getElementById("sonuc2").innerHTML= "Sisteme Ekli olan Toplam Kitap Sayisi :  " + kayitsayisi;
+
 
     }
 
-    mesajGoster(){
+    mesajGoster(mesaj,className){
+
+        // const container=document.querySelector(".container");
+
+        // const form=document.querySelector("#formKitap");
+
+        
+        // const mesajKutusu=document.createElement("div");
+
+        // // mesajKutusu.className=`${className}`;
+        // mesajKutusu.classList.add(`${className}`)
+
+        // // mesajKutusu.appendChild(document.createTextNode(mesaj));
+        // mesajKutusu.innerHTML=mesaj;
+
+
+
+        // // container.insertBefore(mesajKutusu,form);
+        // document.querySelector(".baslik2").innerHTML=mesaj;
+
+
+//  ---------------------------------------
+
+
+
+        const h3=document.querySelector(".baslik2");
+        
+        h3.classList.add(`${className}`)
+        h3.innerHTML=mesaj;
+
+        setTimeout(function(){
+            document.querySelector(".baslik2").remove();
+        },2000);
+
+      
 
     }
 
-    zamanAsimi(){
 
-    }
-
-    formuTemizle(){
-
-    }
 
 }
 
@@ -62,12 +100,19 @@ document.getElementById("formKitap").addEventListener("submit",function(e){
 
     if(kitapAdi !="" && kitapYazari !="" && kitapISBN !=""){
     islem.kitapEkle(kitap);
-    document.getElementById("sonuc").innerHTML="Kitap Basariyla eklenmistir";
+    // document.getElementById("sonuc").innerHTML="Kitap Basariyla eklenmistir";
+
+    islem.mesajGoster("Kitap başarıyla eklendi","success");
+
+    islem.kitapSay();
 }
 
 else{
-    document.getElementById("sonuc").innerHTML="Bos kisimlar var kitap eklenemedi";
+    // document.getElementById("sonuc").innerHTML="Bos kisimlar var kitap eklenemedi";
+    islem.mesajGoster("Lütfen tüm alanları doldurunuz!","error");
 }
+
+    islem.formuTemizle();
 
     e.preventDefault();
 });
@@ -79,6 +124,14 @@ else{
 
 
 document.getElementById("kitapListesi").addEventListener("click",function(e){
+
+    const islem = new Arayuz();
+
+    islem.kitapSil(e.target);
+
+    islem.kitapSay();
+
+    islem.mesajGoster("Kitap başarıyla silindi","success");
 
     e.preventDefault();
 });
