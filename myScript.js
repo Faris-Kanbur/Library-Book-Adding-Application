@@ -47,7 +47,7 @@ class Arayuz{
 
     mesajGoster(mesaj,className){
 
-// ---------------------Birinci yol-----------------------
+// ---------------------Birinci yol--------------------------------------
 
         const container=document.querySelector(".container");
 
